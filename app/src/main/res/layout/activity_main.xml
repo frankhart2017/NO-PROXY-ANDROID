@@ -117,6 +117,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/button_style"
         android:text="Signup"
+        android:onClick="logSignupBtnClicked"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

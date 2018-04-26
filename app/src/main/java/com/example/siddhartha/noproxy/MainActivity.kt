@@ -16,4 +16,9 @@ class MainActivity : AppCompatActivity() {
         val gotoForgot = Intent(this, ForgotActivity::class.java)
         startActivity(gotoForgot)
     }
+
+    fun logSignupBtnClicked(view: View) {
+        val gotoSignup = Intent(this, SignupActivity::class.java)
+        startActivity(gotoSignup)
+    }
 }
