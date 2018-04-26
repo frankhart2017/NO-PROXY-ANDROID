@@ -88,6 +88,7 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         android:text="Forgot Password"
+        android:onClick="forgotBtnClicked"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
