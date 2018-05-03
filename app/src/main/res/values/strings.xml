@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">No Proxy</string>
+    <string name="faculty">Faculty</string>
+    <string name="student">Student</string>
+    <string name="signup">Signup</string>
+    <string name="new_to_no_proxy">New to No Proxy</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email_address">Email address</string>
+    <string name="back">Back</string>
+    <string name="forgot_password">Forgot Password</string>
 </resources>
