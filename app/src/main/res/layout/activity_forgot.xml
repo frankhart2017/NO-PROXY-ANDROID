@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/logEmailText"
+            android:id="@+id/logEmail1Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email address"
