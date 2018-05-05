@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
                 val url = url1 + url2
                 val loginRequest = object: JsonObjectRequest(Method.GET, url, null, Response.Listener { response ->
                     try {
-                        Toast.makeText(this, url, Toast.LENGTH_SHORT).show()
                         val jsonStatus = response.getString("logStatus")
 
                         if (jsonStatus.toInt() == 0) {
