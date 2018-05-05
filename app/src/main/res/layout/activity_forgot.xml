@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/logEmail1Text"
+            android:id="@+id/forgotEmailText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email address"
@@ -44,13 +44,14 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/forgotBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/button_style"
         android:text="Send Mail"
+        android:onClick="forgotBtnClicked"
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input" />
@@ -70,6 +71,42 @@
         app:layout_constraintBottom_toTopOf="@+id/input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="245dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/facultyForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:buttonTint="@android:color/white"
+            android:text="@string/faculty"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/abinput" />
+
+        <RadioButton
+            android:id="@+id/studentForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-32dp"
+            android:layout_marginStart="90dp"
+            android:buttonTint="@android:color/white"
+            android:text="@string/student"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/abinput" />
+
+    </RadioGroup>
 
 
 </android.support.constraint.ConstraintLayout>
