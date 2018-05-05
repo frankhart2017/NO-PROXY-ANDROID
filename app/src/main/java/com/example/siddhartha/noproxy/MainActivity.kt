@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.Toast
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -21,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loginBtn.setOnClickListener {
+        otpBtn.setOnClickListener {
 
             if(logEmail1Text.text.toString() == "" || logPassword1Text.text.toString() == "") {
                 Toast.makeText(this,"fill the form", Toast.LENGTH_SHORT).show()
@@ -113,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         val gotoSignup = Intent(this, SignupActivity::class.java)
         startActivity(gotoSignup)
     }
-    
+
 
     fun isEmailValid(email: String): Boolean {
         return Pattern.compile(
