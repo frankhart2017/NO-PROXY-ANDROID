@@ -23,12 +23,14 @@
         <activity android:name=".StudentAttendanceActivity">
 
         </activity>
-        <activity android:name=".OtpGeneratorActivity">
+        <activity android:name=".GenerateOTPActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+          
         </activity>
     </application>
 
