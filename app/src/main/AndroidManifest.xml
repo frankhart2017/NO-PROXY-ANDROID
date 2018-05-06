@@ -22,24 +22,20 @@
         <activity android:name=".SignupActivity" />
         <activity android:name=".StudentAttendanceActivity" />
         <activity android:name=".GenerateOTPActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".AddSubjectActivity" />
-        <activity android:name=".StudentAddSubjectActivity"></activity>
-        <activity android:name=".ShowAttendanceActivity">
-        </activity>
+        <activity android:name=".StudentAddSubjectActivity" />
+        <activity android:name=".ShowAttendanceActivity"></activity>
         <activity android:name=".SelectOptionActivity">
 
+        </activity>
+        <activity android:name=".MarkAttendanceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-          
         </activity>
     </application>
 
