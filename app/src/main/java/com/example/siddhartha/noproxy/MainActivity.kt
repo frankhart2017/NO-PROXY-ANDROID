@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        otpBtn.setOnClickListener {
+        loginBtn.setOnClickListener {
 
             if(logEmail1Text.text.toString() == "" || logPassword1Text.text.toString() == "") {
                 Toast.makeText(this,"fill the form", Toast.LENGTH_SHORT).show()
