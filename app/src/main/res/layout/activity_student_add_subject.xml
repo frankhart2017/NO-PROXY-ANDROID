@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.siddhartha.noproxy.GenerateOTPActivity">
+    tools:context="com.example.siddhartha.noproxy.StudentAddSubjectActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -43,7 +43,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Generate OTP"
+        android:text="Add subject"
         android:textAllCaps="true"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -52,31 +52,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/registerNumber"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        android:text="Generate OTP"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Register Number"
+        android:textColorHint="@android:color/darker_gray"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subjectCodeGet" />
 
-    <TextView
-        android:id="@+id/textView4"
+    <EditText
+        android:id="@+id/subjectCodeStudent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Subject Code"
+        android:textColorHint="@android:color/darker_gray"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerNumber" />
+
+    <Spinner
+        android:id="@+id/slotSpinnerStudent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subjectCodeStudent" />
+
+    <EditText
+        android:id="@+id/facultyIdStudent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Faculty Id"
+        android:textColorHint="@android:color/darker_gray"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slotSpinnerStudent" />
+
+    <Button
+        android:id="@+id/submitSubject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        android:textColor="@android:color/black"
-        android:textSize="36sp"
-        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:text="Submit"
+        android:onClick="addStudentSubject"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        tools:text="123456" />
+        app:layout_constraintTop_toBottomOf="@+id/facultyIdStudent" />
 
 </android.support.constraint.ConstraintLayout>
