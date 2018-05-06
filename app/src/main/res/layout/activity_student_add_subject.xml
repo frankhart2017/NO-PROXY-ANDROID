@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.siddhartha.noproxy.AddSubjectActivity">
+    tools:context="com.example.siddhartha.noproxy.StudentAddSubjectActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -53,14 +53,14 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <EditText
-        android:id="@+id/facultyId"
+        android:id="@+id/registerNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Faculty Id"
+        android:hint="Register Number"
         android:textColorHint="@android:color/darker_gray"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/subjectCode"
+        android:id="@+id/subjectCodeStudent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -80,10 +80,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/facultyId" />
+        app:layout_constraintTop_toBottomOf="@+id/registerNumber" />
 
     <Spinner
-        android:id="@+id/batchSpinner"
+        android:id="@+id/slotSpinnerStudent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -91,33 +91,22 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subjectCode" />
-
-    <Spinner
-        android:id="@+id/slotSpinner"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/batchSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/subjectCodeStudent" />
 
     <EditText
-        android:id="@+id/dOrder"
+        android:id="@+id/facultyIdStudent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Day order(s) (separated by ,)"
+        android:hint="Faculty Id"
         android:textColorHint="@android:color/darker_gray"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slotSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/slotSpinnerStudent" />
 
     <Button
         android:id="@+id/submitSubject"
@@ -127,9 +116,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="Submit"
-        android:onClick="addFacultySubject"
+        android:onClick="addStudentSubject"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dOrder" />
+        app:layout_constraintTop_toBottomOf="@+id/facultyIdStudent" />
 
 </android.support.constraint.ConstraintLayout>
