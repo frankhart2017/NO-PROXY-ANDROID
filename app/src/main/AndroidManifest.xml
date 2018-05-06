@@ -21,7 +21,13 @@
         <activity android:name=".SubjectListActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".StudentAttendanceActivity" />
-        <activity android:name=".GenerateOTPActivity" />
+        <activity android:name=".GenerateOTPActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".AddSubjectActivity" />
         <activity android:name=".StudentAddSubjectActivity"></activity>
         <activity android:name=".ShowAttendanceActivity">
@@ -33,7 +39,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+          
         </activity>
     </application>
 
