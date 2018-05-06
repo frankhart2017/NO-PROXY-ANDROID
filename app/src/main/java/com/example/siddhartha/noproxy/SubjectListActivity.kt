@@ -30,8 +30,8 @@ class SubjectListActivity : AppCompatActivity() {
     }
 
     private fun ParseJSONSubjects() {
-        val id = "RA1611003010876"
-        val type = "2"
+        val id = intent.getStringExtra("id")
+        val type = intent.getStringExtra("type")
 
         val url1 = "http://interconnect-com.stackstaging.com/json/?allSub=" + type
         var url2 = "&reg=" + id
