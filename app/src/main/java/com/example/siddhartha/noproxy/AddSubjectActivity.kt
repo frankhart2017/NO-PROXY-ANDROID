@@ -11,7 +11,6 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_add_subject.*
-import kotlinx.android.synthetic.main.activity_forgot.*
 import org.json.JSONException
 
 class AddSubjectActivity : AppCompatActivity() {
@@ -40,7 +39,7 @@ class AddSubjectActivity : AppCompatActivity() {
             if(facultyId.text.toString().length != 6) {
                 errorMsg += "Faculty ID is invalid\r\n"
             }
-            if(subjectCode.text.toString().length != 7 && subjectCode.text.toString().length != 8) {
+            if(subjectCodeGet.text.toString().length != 7 && subjectCodeGet.text.toString().length != 8) {
                 errorMsg += "Subject code is invalid"
             }
 
@@ -49,7 +48,7 @@ class AddSubjectActivity : AppCompatActivity() {
             } else {
 
                 val url1 = "http://interconnect-com.stackstaging.com/json/?fac=1"
-                val url2 = "&tid=" + facultyId.text + "&scode=" + subjectCode.text
+                val url2 = "&tid=" + facultyId.text + "&scode=" + subjectCodeGet.text
                 val url3 = "&batch=" + batchSpinner.selectedItem + "&slot=" + slotSpinner.selectedItem + "&do=" + dOrder.text
                 val url = url1 + url2 + url3
                 val loginRequest = object: JsonObjectRequest(Method.GET, url, null, Response.Listener { response ->

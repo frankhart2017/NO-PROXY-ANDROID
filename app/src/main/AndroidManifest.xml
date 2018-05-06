@@ -21,11 +21,12 @@
         <activity android:name=".SubjectListActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".StudentAttendanceActivity" />
-        <activity android:name=".GenerateOTPActivity"></activity>
-        <activity android:name=".AddSubjectActivity">
+        <activity android:name=".GenerateOTPActivity" />
+        <activity android:name=".AddSubjectActivity"></activity>
+        <activity android:name=".StudentAddSubjectActivity">
 
         </activity>
-        <activity android:name=".StudentAddSubjectActivity">
+        <activity android:name=".ShowAttendanceActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
