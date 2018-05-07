@@ -24,8 +24,8 @@ class ShowAttendanceActivity : AppCompatActivity() {
 
     fun ParseJSONRegNums() {
 
-        val scode = "15CS205J"
-        val tid = "101357"
+        val scode = intent.getStringExtra("scode")
+        val tid = intent.getStringExtra("id")
 
         subjectCodeGet.text = scode
 

@@ -1,11 +1,14 @@
 package com.example.siddhartha.noproxy
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
@@ -21,17 +24,21 @@ import org.json.JSONException
 
 class SubjectListActivity : AppCompatActivity() {
 
+    lateinit var sp: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_subject_list)
+
+        sp = getSharedPreferences("login", Context.MODE_PRIVATE)
 
         ParseJSONSubjects()
 
     }
 
     private fun ParseJSONSubjects() {
-        val id = intent.getStringExtra("id")
-        val type = intent.getStringExtra("type")
+        val id = sp.getString("id", "")
+        val type = sp.getString("type", "")
 
         val url1 = "http://interconnect-com.stackstaging.com/json/?allSub=" + type
         var url2 = "&reg=" + id
@@ -64,8 +71,22 @@ class SubjectListActivity : AppCompatActivity() {
                         i++
                     }
 
-                    adapter = SubjectsAdapter(this, listSubjects) {
-
+                    adapter = SubjectsAdapter(this, listSubjects) { clicked ->
+                        if(type == "1") {
+                            val gotoOptions = Intent(this, SelectOptionActivity::class.java)
+                            gotoOptions.putExtra("id", id)
+                            gotoOptions.putExtra("type", type)
+                            gotoOptions.putExtra("scode", clicked.scode)
+                            gotoOptions.putExtra("slot", clicked.slot)
+                            startActivity(gotoOptions)
+                        } else if(type == "2") {
+                            val gotoMarkAttendance = Intent(this, MarkAttendanceActivity::class.java)
+                            gotoMarkAttendance.putExtra("id", id)
+                            gotoMarkAttendance.putExtra("type", type)
+                            gotoMarkAttendance.putExtra("scode", clicked.scode)
+                            gotoMarkAttendance.putExtra("slot", clicked.slot)
+                            startActivity(gotoMarkAttendance)
+                        }
                     }
                     subjectList.adapter = adapter
 
@@ -92,5 +113,31 @@ class SubjectListActivity : AppCompatActivity() {
             }
         }
         Volley.newRequestQueue(this).add(loginRequest)
+    }
+
+    fun addBtnClicked(view: View) {
+
+        if(sp.getString("type", "") == "1") {
+
+            val gotoFacultyAddSubject = Intent(this, AddSubjectActivity::class.java)
+            startActivity(gotoFacultyAddSubject)
+
+        } else if(sp.getString("type", "") == "2") {
+
+            val gotoStudentAddSubject = Intent(this, StudentAddSubjectActivity::class.java)
+            startActivity(gotoStudentAddSubject)
+
+        }
+
+    }
+
+    fun logoutBtnClicked(view: View) {
+
+        sp.edit().putBoolean("logged", false).apply()
+        sp.edit().putString("id", "").apply()
+        sp.edit().putString("type", "").apply()
+        val gotoMain = Intent(this, MainActivity::class.java)
+        startActivity(gotoMain)
+
     }
 }

@@ -1,5 +1,6 @@
 package com.example.siddhartha.noproxy
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -28,15 +29,14 @@ class MarkAttendanceActivity : AppCompatActivity() {
 
         submitOtpBtn.setOnClickListener {
 
-            val reg = "RA1611003010984"
-            val scode = "15CS205J"
-            val tid = "101357"
+            val reg = intent.getStringExtra("id")
+            val scode = intent.getStringExtra("scode")
 
             if(dayOrderText.selectedItem.toString() != "--Select Day Order--" && hourText.selectedItem.toString() !=
                     "--Select Hour--" && otpText.text.toString() != "") {
 
                 val url1 = "http://interconnect-com.stackstaging.com/json/?attendance=1"
-                val url2 = "&reg=$reg&scode=$scode&tid=$tid"
+                val url2 = "&reg=$reg&scode=$scode"
                 val url3 = "&do=" +dayOrderText.selectedItem.toString() + "&hour=" + hourText.selectedItem.toString()
                 val url4 = "&otp=" +otpText.text.toString()
                 val url = url1 + url2 +url3 + url4
@@ -47,7 +47,11 @@ class MarkAttendanceActivity : AppCompatActivity() {
                         when {
                             jsonStatus.toInt() == 0 -> Toast.makeText(this, "Oops there was some error," +
                                     " please come back later!",Toast.LENGTH_SHORT).show()
-                            jsonStatus.toInt() == 1 -> Toast.makeText(this,"Attendance marked successfully!", Toast.LENGTH_SHORT).show()
+                            jsonStatus.toInt() == 1 -> {
+                                Toast.makeText(this,"Attendance marked successfully!", Toast.LENGTH_SHORT).show()
+                                val gotoSubjectList = Intent(this, SubjectListActivity::class.java)
+                                startActivity(gotoSubjectList)
+                            }
                             jsonStatus.toInt() == 2 -> Toast.makeText(this,"OTP expired!",Toast.LENGTH_SHORT).show()
                             jsonStatus.toInt() == 3 -> Toast.makeText(this, "Incorrect OTP!", Toast.LENGTH_SHORT).show()
                         }
