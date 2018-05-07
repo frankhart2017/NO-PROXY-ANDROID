@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
@@ -112,5 +113,31 @@ class SubjectListActivity : AppCompatActivity() {
             }
         }
         Volley.newRequestQueue(this).add(loginRequest)
+    }
+
+    fun addBtnClicked(view: View) {
+
+        if(sp.getString("type", "") == "1") {
+
+            val gotoFacultyAddSubject = Intent(this, AddSubjectActivity::class.java)
+            startActivity(gotoFacultyAddSubject)
+
+        } else if(sp.getString("type", "") == "2") {
+
+            val gotoStudentAddSubject = Intent(this, StudentAddSubjectActivity::class.java)
+            startActivity(gotoStudentAddSubject)
+
+        }
+
+    }
+
+    fun logoutBtnClicked(view: View) {
+
+        sp.edit().putBoolean("logged", false).apply()
+        sp.edit().putString("id", "").apply()
+        sp.edit().putString("type", "").apply()
+        val gotoMain = Intent(this, MainActivity::class.java)
+        startActivity(gotoMain)
+
     }
 }
