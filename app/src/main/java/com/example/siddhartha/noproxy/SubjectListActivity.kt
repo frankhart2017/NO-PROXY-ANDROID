@@ -70,8 +70,22 @@ class SubjectListActivity : AppCompatActivity() {
                         i++
                     }
 
-                    adapter = SubjectsAdapter(this, listSubjects) {
-
+                    adapter = SubjectsAdapter(this, listSubjects) { clicked ->
+                        if(type == "1") {
+                            val gotoOptions = Intent(this, SelectOptionActivity::class.java)
+                            gotoOptions.putExtra("id", id)
+                            gotoOptions.putExtra("type", type)
+                            gotoOptions.putExtra("scode", clicked.scode)
+                            gotoOptions.putExtra("slot", clicked.slot)
+                            startActivity(gotoOptions)
+                        } else if(type == "2") {
+                            val gotoMarkAttendance = Intent(this, StudentAttendanceActivity::class.java)
+                            gotoMarkAttendance.putExtra("id", id)
+                            gotoMarkAttendance.putExtra("type", type)
+                            gotoMarkAttendance.putExtra("scode", clicked.scode)
+                            gotoMarkAttendance.putExtra("slot", clicked.slot)
+                            startActivity(gotoMarkAttendance)
+                        }
                     }
                     subjectList.adapter = adapter
 

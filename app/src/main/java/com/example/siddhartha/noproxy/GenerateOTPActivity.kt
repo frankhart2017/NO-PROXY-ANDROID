@@ -19,12 +19,12 @@ class GenerateOTPActivity : AppCompatActivity() {
 
         otpBtn.setOnClickListener {
 
-            val slot = "B"
-            val sid = "15CS205J"
-            val tid = "101357"
+            val slot = intent.getStringExtra("slot")
+            val sid = intent.getStringExtra("scode")
+            val tid = intent.getStringExtra("id")
 
             val url1 = "http://interconnect-com.stackstaging.com/json/?generate=1"
-            val url2 = "&slot=" +slot + "&sid=" + sid + "&tid=" + tid
+            val url2 = "&slot=$slot&sid=$sid&tid=$tid"
             val url = url1 + url2
             val loginRequest = object : JsonObjectRequest(Method.GET, url, null, Response.Listener { response ->
                 try {
