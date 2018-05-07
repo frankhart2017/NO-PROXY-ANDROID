@@ -28,7 +28,6 @@
         <activity android:name=".ForgotActivity" />
         <activity android:name=".SubjectListActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".StudentAttendanceActivity" />
         <activity android:name=".GenerateOTPActivity">
 
         </activity>

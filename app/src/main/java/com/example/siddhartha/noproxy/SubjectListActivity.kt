@@ -79,7 +79,7 @@ class SubjectListActivity : AppCompatActivity() {
                             gotoOptions.putExtra("slot", clicked.slot)
                             startActivity(gotoOptions)
                         } else if(type == "2") {
-                            val gotoMarkAttendance = Intent(this, StudentAttendanceActivity::class.java)
+                            val gotoMarkAttendance = Intent(this, MarkAttendanceActivity::class.java)
                             gotoMarkAttendance.putExtra("id", id)
                             gotoMarkAttendance.putExtra("type", type)
                             gotoMarkAttendance.putExtra("scode", clicked.scode)
