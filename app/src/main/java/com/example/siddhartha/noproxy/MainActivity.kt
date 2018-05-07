@@ -1,6 +1,8 @@
 package com.example.siddhartha.noproxy
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,9 +18,18 @@ import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var sp: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        sp = getSharedPreferences("login", Context.MODE_PRIVATE)
+
+        if(sp.getBoolean("logged", false)) {
+            val gotoSubjectList = Intent(this, SubjectListActivity::class.java)
+            startActivity(gotoSubjectList)
+        }
 
         loginBtn.setOnClickListener {
 
@@ -27,12 +38,6 @@ class MainActivity : AppCompatActivity() {
             } else if (!isEmailValid(logEmail1Text.text.toString())) {
                 Toast.makeText(this, "email galat hai", Toast.LENGTH_SHORT).show()
             } else {
-//                radioGroup.setOnCheckedChangeListener(
-//                        RadioGroup.OnCheckedChangeListener { group, checkedId ->
-//                            val radio: RadioButton = findViewById(checkedId)
-//                            Toast.makeText(applicationContext," On checked change : ${radio.text}",
-//                                    Toast.LENGTH_SHORT).show()
-//                        } )
 
                 var id: Int = radioGroup.checkedRadioButtonId
                 val radio:RadioButton = findViewById(id)
@@ -50,6 +55,11 @@ class MainActivity : AppCompatActivity() {
                             } else if (jsonStatus.toInt() == 1) {
                                 Toast.makeText(this, "login successfull!",
                                         Toast.LENGTH_SHORT).show()
+                                val gotoShowSubjects = Intent(this, SubjectListActivity::class.java)
+                                sp.edit().putBoolean("logged", true).apply()
+                                sp.edit().putString("id", response.getString("tid")).apply()
+                                sp.edit().putString("type", "1").apply()
+                                startActivity(gotoShowSubjects)
                             }
 
                         } catch (e: JSONException) {
@@ -79,6 +89,11 @@ class MainActivity : AppCompatActivity() {
                             } else if (jsonStatus.toInt() == 1) {
                                 Toast.makeText(this, "login successfull!",
                                         Toast.LENGTH_SHORT).show()
+                                val gotoShowSubjects = Intent(this, SubjectListActivity::class.java)
+                                sp.edit().putBoolean("login", true).apply()
+                                sp.edit().putString("id", response.getString("reg")).apply()
+                                sp.edit().putString("type", "2").apply()
+                                startActivity(gotoShowSubjects)
                             }
 
                         } catch (e: JSONException) {
@@ -103,6 +118,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onRestart() {
+        super.onRestart()
+
+        if(sp.getBoolean("logged", false)) {
+            val gotoSubjectList = Intent(this, SubjectListActivity::class.java)
+            startActivity(gotoSubjectList)
+        }
+
+    }
+
     fun forgotBtnClicked( view: View) {
         val gotoForgot = Intent(this, ForgotActivity::class.java)
         startActivity(gotoForgot)
@@ -112,7 +137,6 @@ class MainActivity : AppCompatActivity() {
         val gotoSignup = Intent(this, SignupActivity::class.java)
         startActivity(gotoSignup)
     }
-
 
     fun isEmailValid(email: String): Boolean {
         return Pattern.compile(
