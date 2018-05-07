@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.siddhartha.noproxy">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,11 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <meta-data
@@ -22,7 +26,20 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".ForgotActivity" />
-        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".SubjectListActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".GenerateOTPActivity">
+
+        </activity>
+        <activity android:name=".AddSubjectActivity" />
+        <activity android:name=".StudentAddSubjectActivity" />
+        <activity android:name=".ShowAttendanceActivity"></activity>
+        <activity android:name=".SelectOptionActivity">
+
+        </activity>
+        <activity android:name=".MarkAttendanceActivity">
+
+        </activity>
     </application>
 
 </manifest>
