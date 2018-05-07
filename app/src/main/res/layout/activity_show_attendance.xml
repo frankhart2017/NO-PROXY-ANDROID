@@ -22,17 +22,6 @@
             android:textStyle="bold"
             app:fontFamily="@font/anton" />
 
-        <android.support.v7.widget.AppCompatButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="-45dp"
-            android:background="@android:color/transparent"
-            android:text="@string/logout"
-            android:textColor="@android:color/white"
-            tools:ignore="RtlHardcoded" />
-
     </android.support.design.widget.AppBarLayout>
 
     <TextView
