@@ -35,7 +35,7 @@ class MarkAttendanceActivity : AppCompatActivity() {
             if(dayOrderText.selectedItem.toString() != "--Select Day Order--" && hourText.selectedItem.toString() !=
                     "--Select Hour--" && otpText.text.toString() != "") {
 
-                val url1 = "http://interconnect-com.stackstaging.com/json/?attendance=1"
+                val url1 = "http://<website-link>/json/?attendance=1"
                 val url2 = "&reg=$reg&scode=$scode"
                 val url3 = "&do=" +dayOrderText.selectedItem.toString() + "&hour=" + hourText.selectedItem.toString()
                 val url4 = "&otp=" +otpText.text.toString()
