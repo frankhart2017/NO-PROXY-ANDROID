@@ -51,7 +51,7 @@ class SignupActivity : AppCompatActivity() {
                 //sign up of faculty
                 if (logIdText.text.toString().length == 7) {
 
-                    val url1 = "http://interconnect-com.stackstaging.com/json/?log=1&sign=1"
+                    val url1 = "http://<website-link>/json/?log=1&sign=1"
                     val url2 = "&name=" + devoidOfSpace(logNameText.text.toString()) + "&email=" + logEmail1Text.text.toString()
                     val url3 = "&tid=" + logIdText.text.toString() + "&password=" + logPassword1Text.text.toString()
                     val url = url1 + url2 + url3
@@ -85,7 +85,7 @@ class SignupActivity : AppCompatActivity() {
                     Volley.newRequestQueue(this).add(loginRequest)
                     //sign up of student
                 } else {
-                    val url1 = "http://interconnect-com.stackstaging.com/json/?log=1&sign=2"
+                    val url1 = "http://<website-link>/json/?log=1&sign=2"
                     val url2 = "&name=" + devoidOfSpace(logNameText.text.toString()) + "&email=" + logEmail1Text.text.toString()
                     val url3 = "&reg=" + logIdText.text.toString() + "&password=" + logPassword1Text.text.toString()
                     val url = url1 + url2 + url3
