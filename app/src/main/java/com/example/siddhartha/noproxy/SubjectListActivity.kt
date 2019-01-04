@@ -40,7 +40,7 @@ class SubjectListActivity : AppCompatActivity() {
         val id = sp.getString("id", "")
         val type = sp.getString("type", "")
 
-        val url1 = "http://interconnect-com.stackstaging.com/json/?allSub=" + type
+        val url1 = "http://<website-link>/json/?allSub=" + type
         var url2 = "&reg=" + id
         if(type == "1") {
             url2 = "&tid=" + id
