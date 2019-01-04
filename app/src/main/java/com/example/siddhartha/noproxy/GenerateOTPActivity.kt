@@ -23,7 +23,7 @@ class GenerateOTPActivity : AppCompatActivity() {
             val sid = intent.getStringExtra("scode")
             val tid = intent.getStringExtra("id")
 
-            val url1 = "http://interconnect-com.stackstaging.com/json/?generate=1"
+            val url1 = "http://<website-link>/json/?generate=1"
             val url2 = "&slot=$slot&sid=$sid&tid=$tid"
             val url = url1 + url2
             val loginRequest = object : JsonObjectRequest(Method.GET, url, null, Response.Listener { response ->
