@@ -29,7 +29,7 @@ class ShowAttendanceActivity : AppCompatActivity() {
 
         subjectCodeGet.text = scode
 
-        val url1 = "http://interconnect-com.stackstaging.com/json/?getAttendance=1"
+        val url1 = "http://<website-link>/json/?getAttendance=1"
         val url2 = "&scode=$scode&tid=$tid"
         val url = url1 + url2
         val loginRequest = object: JsonObjectRequest(Method.GET, url, null, Listener { response ->
