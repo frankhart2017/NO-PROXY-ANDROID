@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 var id: Int = radioGroup.checkedRadioButtonId
                 val radio:RadioButton = findViewById(id)
                 if (radio.text.toString() == "Faculty") {
-                    val url1 = "http://interconnect-com.stackstaging.com/json/?log=2&login=1"
+                    val url1 = "http://<website-link>/json/?log=2&login=1"
                     val url2 = "&email=" + logEmail1Text.text.toString() + "&password=" + logPassword1Text.text.toString()
                     val url = url1 + url2
                     val loginRequest = object : JsonObjectRequest(Method.GET, url, null, Response.Listener { response ->
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     Volley.newRequestQueue(this).add(loginRequest)
                 } else if (radio.text.toString() == "Student") {
-                    val url1 = "http://interconnect-com.stackstaging.com/json/?log=2&login=2"
+                    val url1 = "http://<website-link>json/?log=2&login=2"
                     val url2 = "&email=" + logEmail1Text.text.toString() + "&password=" + logPassword1Text.text.toString()
                     val url = url1 + url2
                     val loginRequest = object : JsonObjectRequest(Method.GET, url, null, Response.Listener { response ->
