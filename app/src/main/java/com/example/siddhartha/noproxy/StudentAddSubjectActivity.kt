@@ -49,7 +49,7 @@ class StudentAddSubjectActivity : AppCompatActivity() {
                 Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
             } else {
 
-                val url1 = "http://interconnect-com.stackstaging.com/json/?fac=2"
+                val url1 = "http://<website-link>/json/?fac=2"
                 val url2 = "&reg=" + registerNumber.text + "&sid=" + subjectCodeStudent.text
                 val url3 = "&tid=" + facultyIdStudent.text + "&slot=" + slotSpinnerStudent.selectedItem
                 val url = url1 + url2 + url3
